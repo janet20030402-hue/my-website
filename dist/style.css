@@ -1,0 +1,113 @@
+body {
+
+}
+
+.container {
+  background-color: #aaaaaa;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background-color: pink;
+}
+
+.header-tilte {
+  text-align: center;
+}
+
+
+.main {
+  background-color: white;  
+  flex: 1;
+  display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap: 20px; /* 卡片之間留間距 */
+  padding: 20px;
+  align-items: stretch;
+}
+
+.box {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  
+}
+
+.box-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.box h3 {
+  height: 40px;  /* 固定標題高度 */
+  display: flex;
+  align-items: center; /* 讓字在中間 */
+  justify-content: center;
+  margin: 0 0 10px;
+}
+
+/* 限制段落文字三行，多餘顯示省略號 */
+.box p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 限制 3 行 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  color: #333;
+  font-size: 14px;
+}
+
+.text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 限制顯示三行 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.text.expanded {
+  display: block; /* 展開後改回 block 顯示全文 */
+  overflow: visible;
+  -webkit-line-clamp: unset; /* 取消三行限制 */
+}
+
+.toggle-btn {
+  background: pink;
+  border: none;
+  padding: 4px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer {
+  background-color: pink;
+  text-align: center; 
+  font-size: 20px;  
+  padding: 10px;  
+  
+}
+
+
+/* RWD：平板以下 → 每排兩個 */
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* RWD：手機 → 每排一個 */
+@media (max-width: 480px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
